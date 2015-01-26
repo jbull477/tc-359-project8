@@ -1,3 +1,9 @@
 body{ 
-	background: red;
+	background-image: url("../images/face.png");
+}
+
+h1, h2, h3, p{
+	color: rgb(130, 150, 68);
+	background-color: rgba(0, 0, 0, 0.7);
+	font-style: oblique;	
 }
