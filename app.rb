@@ -1,4 +1,3 @@
-# app.rb
 require 'sinatra'
 
 class MyWebApp < Sinatra::Base
