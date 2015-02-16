@@ -1,8 +1,12 @@
-body{ 
+/*body{ 
 	background-image: url("../images/face.png");
 }
 
 h1, h2, h3, p{
 	background-color: rgba(255, 255, 255, 0.7);
 	font-style: oblique;	
+}*/
+
+h1, h2{
+	text-align: center;
 }
