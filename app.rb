@@ -1,10 +1,18 @@
 require 'sinatra'
 require 'holidapi'
+require 'date'
 
 class MyWebApp < Sinatra::Base
   get '/' do
-    @currentHolidays = HolidApi.get(country: 'us', year: Time.now.year, month: Time.now.month)
-    @myHolidays = HolidApi.get(country: 'us', year: 1993, month: 5)
-    erb :index
+  	country = params['country'] || 'us'
+
+  	if params['date'] != nil
+  		date = Date.parse(params['date'])
+  	else
+  		date = Date.new
+  	end
+
+  	@holidays = HolidApi.get(country: country, month: date.month, year: date.year)
+  	erb :index
   end
 end

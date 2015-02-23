@@ -1,17 +1,26 @@
 <!doctype html>
 <html>
   <head>
-    <title>Holidaze</title>
+    <title>Cats!</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
   </head>
   <body class=".container">
-  	<h1>Hollindaze</h1>
-  	<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-	  	<h2>Holidaze for the current month</h2>
+  	<form>
+  		<select name="country" class="form-control" value="<%= params['country'] %>">
+		    <option value="us">US</option>
+		    <option value="gb">GB</option>
+		    <option value="be">BE</option>
+		    <option value="br">BR</option>
+		</select>
+  		<input name="date" type="date" value="<%= params['date'] %>">
+	  <button type="submit">Click for holidays!</button>
+	</form>
+	<% if @holidays.any? %>
+		<h2>Holidaze</h2>
 	  	<ol>
-	  		<% @currentHolidays.each do |holiday| %>
+	  		<% @holidays.each do |holiday| %>
 	  			<% holiday.each do |h| %>
 	  				<li>
 	  					<%= h["name"] %>
@@ -20,17 +29,9 @@
 	  		<% end %>
 	  	</ol>
 	  </div>
-	<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-	  	<h2>Holidaez for my birthday month (May, 1993)</h2>
-	  	<ol>
-	  		<% @myHolidays.each do |holiday| %>
-	  			<% holiday.each do |h| %>
-	  				<li>
-	  					<%= h["name"] %>
-	  				</li>
-	  			<% end %>
-	  		<% end %>
-	  	</ol>
-  	</div>
+
+	<% else %>
+		<p>LEARN HOW TO SEARCH FOR THINGS!</p>
+	<% end %>
   </body>
 </html>
