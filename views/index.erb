@@ -8,11 +8,12 @@
   </head>
   <body class=".container">
   	<form>
-  		<select name="country" class="form-control" value="<%= params['country'] %>">
-		    <option value="us">US</option>
-		    <option value="gb">GB</option>
-		    <option value="be">BE</option>
-		    <option value="br">BR</option>
+  		<select name="country" class="form-control">
+  			<% ["us", "gb", "be", "br"].each do |country| %>
+  				<option <% if params['country'] == country %> <%= selected="selected" %> <% end %> value="<%= country %>">
+  					<%= country %>
+  				</option>
+  			<% end %>
 		</select>
   		<input name="month" type="month" value="<%= params['month'] %>">
 	  <button type="submit">Click for holidays!</button>
