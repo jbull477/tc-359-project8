@@ -6,8 +6,10 @@ class MyWebApp < Sinatra::Base
   get '/' do
   	country = params['country'] || 'us'
 
-  	if params['date'] != nil
-  		date = Date.parse(params['date'])
+  	if params['month'] != nil
+      string = params['month']
+      string += '-01'
+      date = Date.parse(string)
   	else
   		date = Date.new
   	end
